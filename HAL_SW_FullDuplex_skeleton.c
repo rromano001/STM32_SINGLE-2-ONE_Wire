@@ -3,12 +3,12 @@ It work on Single wire Onewire over UART using just one pin no external hardware
 */
 
 
-HAL_StatusTypeDef HAL_HalfDuplex_EnableRTX(UART_HandleTypeDef *huart)
+HAL_StatusTypeDef HAL_SnglWireFullDuplex_EnableRTX(UART_HandleTypeDef *huart)
 {
   __HAL_LOCK(huart);
   huart->gState = HAL_UART_STATE_BUSY;
 
-  /* Enable the USART's transmit interface by setting the TE bit in the USART CR1 register */
+  /* Enable the USART's transmit and receive interface by setting the TE bit in the USART CR1 register */
   SET_BIT(huart->Instance->CR1, (USART_CR1_TE | USART_CR1_RE));
 
   huart->gState = HAL_UART_STATE_READY;
@@ -19,12 +19,12 @@ HAL_StatusTypeDef HAL_HalfDuplex_EnableRTX(UART_HandleTypeDef *huart)
 }
 
 
-HAL_StatusTypeDef HAL_HalfDuplex_DisableRTX(UART_HandleTypeDef *huart)
+HAL_StatusTypeDef HAL_SnglWireFullDuplex_DisableRTX(UART_HandleTypeDef *huart)
 {
   __HAL_LOCK(huart);
   huart->gState = HAL_UART_STATE_BUSY;
 
-  /* Clear TE and RE bits */
+  /* Disable both Receive and transmit by Clearing TE and RE bits */
   CLEAR_BIT(huart->Instance->CR1, (USART_CR1_TE | USART_CR1_RE));
 
   huart->gState = HAL_UART_STATE_READY;
@@ -33,6 +33,7 @@ HAL_StatusTypeDef HAL_HalfDuplex_DisableRTX(UART_HandleTypeDef *huart)
 
   return HAL_OK;
 }
+
 
 //  skeleton preview (work in progress)
 void OW_Send_ReceiveByte(uint8_t Exchange[])
