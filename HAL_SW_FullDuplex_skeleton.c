@@ -58,3 +58,40 @@ void OW_Send_ReceiveByte(uint8_t Exchange[])
 		//HAL_HalfDuplex_EnableReceiver(&huart4);
 
 }
+
+void OneWire_Init()
+{
+	OneWire_UARTInit(9600);
+}
+// Declare a USART_HandleTypeDef handle structure.
+void OneWire_UARTInit(uint32_t baudRate)
+{
+/*
+	huart4.Instance = UART4;
+	huart4.Init.BaudRate = 115200;
+	huart4.Init.WordLength = UART_WORDLENGTH_8B;
+	huart4.Init.StopBits = UART_STOPBITS_1;
+	huart4.Init.Parity = UART_PARITY_NONE;
+	huart4.Init.Mode = UART_MODE_TX_RX;
+	huart4.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+	huart4.Init.OverSampling = UART_OVERSAMPLING_16;
+	huart4.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+	huart4.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+	if (HAL_HalfDuplex_Init(&huart4) != HAL_OK)
+	{
+		Error_Handler();
+	}
+*/
+	huart4.Instance=UART4; // USART2;
+    huart4.Init.BaudRate = baudRate;
+    huart4.Init.WordLength = UART_WORDLENGTH_8B;
+    huart4.Init.StopBits = UART_STOPBITS_1;
+    huart4.Init.Parity = UART_PARITY_NONE;
+    huart4.Init.Mode = UART_MODE_TX_RX;
+    huart4.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+    huart4.Init.OverSampling = UART_OVERSAMPLING_16;
+//    HAL_UART_Init(&huart4);
+    HAL_HalfDuplex_Init(&huart4);
+ //   return ;
+}
+
