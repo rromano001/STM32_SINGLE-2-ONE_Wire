@@ -29,7 +29,7 @@ Original example was using DMA but DMA failed in some strange way is under inves
           |             |
      PA10 |-------------| DQ       (Add 4K7 to VDD to use parasitic mode)
           |             |
-  ---VSS---|             |---VSS---
+ ---VSS---|             |---VSS---
     uC                   DS Onewire
     
    This way just connect VDD VSS and DQ of sensor to STM32 TX configured as single wire.
