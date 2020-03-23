@@ -2,6 +2,8 @@
 STM32 Single Wire(TM) mode interface to ONEWIRE(TM)
 
 New to GitHub, I try manage files and learn. Complete project is on release.zip other than Pictures
+ Curent code work on DS18S20 DS1820, change readtempds18s20 to readtempds18b20 on main loop.
+ 
 Checked a lot about HAL version, moved to F030 resulted in a mess about USART IRQ locking out everything.
  Changed code to LL USART DMA is now ready in superloop mode nonblocking mode.
  Complete example released for F030, see setup.
