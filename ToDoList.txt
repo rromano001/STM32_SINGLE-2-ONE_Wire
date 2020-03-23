@@ -1,0 +1,12 @@
+Todo:
+
+ complete rom search, alarm search
+ test on multisensor (When I receive)
+ complete error and complete callback
+ check why two extra char transmitted after last read/write
+ Os signalling
+ 18x20 transaction state machin driven by end of transaction signal not delay
+ complete user manual
+ contact Tilen Majerle, integrate SW2OW driver from/to his library.
+ 
+ Check what come from who test for me.
