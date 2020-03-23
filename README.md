@@ -1,6 +1,9 @@
 # STM32_SINGLE-2-ONE_Wire
 STM32 Single Wire(TM) mode interface to ONEWIRE(TM)
 
+Checked a lot about HAL version, moved to F030 resulted in a mess about USART IRQ locking out everithing.
+ Changed code to LL USART DMA is now ready in superloop mode nonblocking mode.
+ Complete example released for F030, see setup.
 march 21 2020 Project opening (work in progress wait few day and I post full working project, actually hosted on a STM32F303RETX I plan provide small Lib for F030 too)
 
  After struggling a lot around never found nothing using Single Wire to interface Onewire without Hardware.
